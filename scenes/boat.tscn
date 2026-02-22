@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://chep1x1t68wb8"]
+
+[ext_resource type="Script" uid="uid://cao1vy2pn3ott" path="res://src/worlds/main/boat.gd" id="1_qyrje"]
+[ext_resource type="Texture2D" uid="uid://unb6bat03qpv" path="res://res/TopDown Boat Assets/boat.png" id="2_lw6pk"]
+[ext_resource type="Texture2D" uid="uid://cpk74kbcxi2g7" path="res://res/indicator.png" id="3_lw6pk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrje"]
+size = Vector2(55, 70)
+
+[node name="boat" type="Node2D"]
+script = ExtResource("1_qyrje")
+
+[node name="boat" type="Sprite2D" parent="."]
+scale = Vector2(0.2231216, 0.2231216)
+texture = ExtResource("2_lw6pk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.2231216, 0.2231216)
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qyrje")
+
+[node name="indicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -61)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_lw6pk")

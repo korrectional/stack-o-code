@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkogcg4jdgdtw"]
+
+[ext_resource type="Script" uid="uid://cd2ppl1obx1tu" path="res://src/worlds/main/fish_meter.gd" id="1_cb8pr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_anrdg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cb8pr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkym8"]
+size = Vector2(1.0297501, 0.9999998)
+
+[node name="fish_meter" type="Node2D"]
+script = ExtResource("1_cb8pr")
+
+[node name="box" type="Sprite2D" parent="."]
+self_modulate = Color(0.3764706, 0.3764706, 0.3764706, 0.8235294)
+scale = Vector2(90, 10)
+texture = SubResource("CanvasTexture_anrdg")
+
+[node name="hit1" type="Sprite2D" parent="box"]
+visible = false
+self_modulate = Color(1, 0, 0, 0.78431374)
+position = Vector2(-0.25555557, 0)
+scale = Vector2(0.19422214, 1)
+texture = SubResource("CanvasTexture_cb8pr")
+
+[node name="hit_zone1" type="Area2D" parent="box/hit1"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit1/hit_zone1"]
+position = Vector2(9.536743e-07, 1.013279e-07)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_gkym8")
+
+[node name="hit2" type="Sprite2D" parent="box"]
+visible = false
+self_modulate = Color(1, 0, 0, 0.78431374)
+position = Vector2(2.9802322e-08, 0)
+scale = Vector2(0.19422214, 1)
+texture = SubResource("CanvasTexture_cb8pr")
+
+[node name="hit_zone2" type="Area2D" parent="box/hit2"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit2/hit_zone2"]
+position = Vector2(9.536743e-07, 1.013279e-07)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_gkym8")
+
+[node name="hit3" type="Sprite2D" parent="box"]
+visible = false
+self_modulate = Color(1, 0, 0, 0.78431374)
+position = Vector2(0.28888893, 0)
+scale = Vector2(0.19422214, 1)
+texture = SubResource("CanvasTexture_cb8pr")
+
+[node name="hit_zone3" type="Area2D" parent="box/hit3"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit3/hit_zone3"]
+position = Vector2(9.536743e-07, 1.013279e-07)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_gkym8")
+
+[node name="hit_detector" type="Sprite2D" parent="box"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-0.48888886, 0)
+scale = Vector2(0.019555464, 1)
+texture = SubResource("CanvasTexture_cb8pr")
+
+[node name="hit_detector_zone" type="Area2D" parent="box/hit_detector"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit_detector/hit_detector_zone"]
+position = Vector2(9.536743e-07, 1.013279e-07)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_gkym8")
+
+[node name="miss" type="Label" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 22.0
+offset_bottom = -5.0
+text = "MISS!"
+
+[node name="caught" type="Label" parent="."]
+visible = false
+offset_left = -39.0
+offset_top = -28.0
+offset_right = 40.0
+offset_bottom = -5.0
+text = "CAUGHT!!!"
+
+[connection signal="area_entered" from="box/hit_detector/hit_detector_zone" to="." method="_on_hit_detector_zone_area_entered"]
+[connection signal="area_exited" from="box/hit_detector/hit_detector_zone" to="." method="_on_hit_detector_zone_area_exited"]

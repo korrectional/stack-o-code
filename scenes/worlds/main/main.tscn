@@ -1,19 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo4de3kau3ech"]
+[gd_scene load_steps=5 format=3 uid="uid://bo4de3kau3ech"]
 
-[ext_resource type="Script" uid="uid://cao1vy2pn3ott" path="res://src/worlds/main/boat.gd" id="1_a65mn"]
-[ext_resource type="Texture2D" uid="uid://unb6bat03qpv" path="res://res/TopDown Boat Assets/boat.png" id="1_jsiw2"]
 [ext_resource type="Texture2D" uid="uid://cpoftqntdj2t6" path="res://res/water.png" id="2_a65mn"]
+[ext_resource type="PackedScene" uid="uid://6grqypwqhmj6" path="res://scenes/fish_spot.tscn" id="3_0iyyk"]
+[ext_resource type="PackedScene" uid="uid://chep1x1t68wb8" path="res://scenes/boat.tscn" id="3_a65mn"]
+[ext_resource type="Script" uid="uid://bl0s760di22p0" path="res://src/worlds/main/fish_spot_spawner.gd" id="4_0iyyk"]
 
 [node name="main" type="Node"]
-
-[node name="boat" type="Node2D" parent="."]
-script = ExtResource("1_a65mn")
-
-[node name="boat" type="Sprite2D" parent="boat"]
-scale = Vector2(0.2231216, 0.2231216)
-texture = ExtResource("1_jsiw2")
-
-[node name="camera" type="Camera2D" parent="boat"]
 
 [node name="water" type="Node2D" parent="."]
 z_index = -1
@@ -21,3 +13,11 @@ z_index = -1
 [node name="water" type="Sprite2D" parent="water"]
 scale = Vector2(1.6718706, 1.6718706)
 texture = ExtResource("2_a65mn")
+
+[node name="fish_spot" parent="." instance=ExtResource("3_0iyyk")]
+position = Vector2(-274, 13)
+
+[node name="boat" parent="." instance=ExtResource("3_a65mn")]
+
+[node name="fish_spot_spawner" type="Node" parent="."]
+script = ExtResource("4_0iyyk")
