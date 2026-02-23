@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkogcg4jdgdtw"]
+[gd_scene load_steps=7 format=3 uid="uid://dkogcg4jdgdtw"]
 
 [ext_resource type="Script" uid="uid://cd2ppl1obx1tu" path="res://src/worlds/main/fish_meter.gd" id="1_cb8pr"]
 
@@ -8,6 +8,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkym8"]
 size = Vector2(1.0297501, 0.9999998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04yw0"]
+size = Vector2(0.19999993, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l17j4"]
+size = Vector2(0.15555556, 1)
 
 [node name="fish_meter" type="Node2D"]
 script = ExtResource("1_cb8pr")
@@ -74,6 +80,20 @@ texture = SubResource("CanvasTexture_cb8pr")
 position = Vector2(9.536743e-07, 1.013279e-07)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_gkym8")
+
+[node name="borderStart" type="Area2D" parent="box"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box/borderStart"]
+position = Vector2(-0.6111111, 0)
+shape = SubResource("RectangleShape2D_04yw0")
+
+[node name="borderEnd" type="Area2D" parent="box"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box/borderEnd"]
+position = Vector2(0.5888889, 0)
+shape = SubResource("RectangleShape2D_l17j4")
 
 [node name="miss" type="Label" parent="."]
 visible = false

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bo4de3kau3ech"]
 
 [ext_resource type="Texture2D" uid="uid://cpoftqntdj2t6" path="res://res/water.png" id="2_a65mn"]
-[ext_resource type="PackedScene" uid="uid://6grqypwqhmj6" path="res://scenes/fish_spot.tscn" id="3_0iyyk"]
-[ext_resource type="PackedScene" uid="uid://chep1x1t68wb8" path="res://scenes/boat.tscn" id="3_a65mn"]
+[ext_resource type="PackedScene" uid="uid://6grqypwqhmj6" path="res://scenes/worlds/main/fish_spot.tscn" id="3_0iyyk"]
+[ext_resource type="PackedScene" uid="uid://chep1x1t68wb8" path="res://scenes/worlds/main/boat.tscn" id="3_a65mn"]
 [ext_resource type="Script" uid="uid://bl0s760di22p0" path="res://src/worlds/main/fish_spot_spawner.gd" id="4_0iyyk"]
 
 [node name="main" type="Node"]

@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var indicator: Sprite2D = $indicator # the ! thinging
+@onready var indicator: Sprite2D = $indicator # the '!' thinging
 
-var fish_meter = preload("res://scenes/fish_meter.tscn") # the fish meter mini game scene
+var fish_meter = preload("res://scenes/worlds/main/fish_meter.tscn") # the fish meter mini game scene
 
 func _ready() -> void:
 	print("(main/boat.gd) Hello, Ive spawned!") #if u leave debug messages, say what script theyre in!
@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 	if Global.can_player_fish:
 		fishTime()
 	else:
-		indicator.visible = false
+		if indicator.visible:
+			indicator.visible = false
 	
 	var ileft = Input.is_action_pressed("left")
 	var iright = Input.is_action_pressed("right")
@@ -65,9 +66,12 @@ func _process(delta: float) -> void:
 			mmomentum.y = 0
 	
 	pass
-	
+
+# yey here we catch the fish
 func fishTime():
 	indicator.visible = true
+	indicator.global_position = position + Vector2.UP*70
+	indicator.global_rotation = 0
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var inst = fish_meter.instantiate()

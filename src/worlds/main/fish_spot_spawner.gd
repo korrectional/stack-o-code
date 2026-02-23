@@ -1,6 +1,6 @@
 extends Node
 
-var spot = preload("res://scenes/fish_spot.tscn")
+var spot = preload("res://scenes/worlds/main/fish_spot.tscn")
 
 # the limits of the spawning box
 var limit_max_position = Vector2(630, 630)

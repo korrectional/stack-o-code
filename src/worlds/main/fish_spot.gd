@@ -4,7 +4,7 @@ extends Area2D
 
 var is_active_fish_area = false # is the player inside the zone
 var selfdestructTimer = 30 # how long does it take for it to die in seconds
-
+var fishSpeed = 3
 func _ready() -> void:
 	animation_player.play("fish_idle")
 	
@@ -19,6 +19,13 @@ func _process(delta: float) -> void:
 	#print(selfdestructTimer)
 	if selfdestructTimer <= 0:
 		self.get_parent().queue_free()
+	
+	
+	# theyre scared, so they'll move away from the boat
+	if scared:
+		position += epicenter.direction_to(position)*fishSpeed
+		if(position.distance_to(epicenter) > 10):
+			scared = false
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -31,3 +38,9 @@ func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		is_active_fish_area = false
 		Global.can_player_fish = false
+
+var scared = false
+var epicenter: Vector2 = Vector2(0, 0)
+
+func scare(epicenter: Vector2):
+	scared = true	

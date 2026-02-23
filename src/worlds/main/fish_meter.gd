@@ -65,7 +65,14 @@ func fish_time(delta: float):
 
 
 func _on_hit_detector_zone_area_entered(area: Area2D) -> void:
-	can_fish = true
+	match area.name:
+		"borderStart":
+			queue_free()
+		"borderEnd":
+			rand_speed = -rand_speed
+		_:
+			can_fish = true
+			
 
 
 func _on_hit_detector_zone_area_exited(area: Area2D) -> void:
