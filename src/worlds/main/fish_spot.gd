@@ -23,24 +23,19 @@ func _process(delta: float) -> void:
 	
 	# theyre scared, so they'll move away from the boat
 	if scared:
-		position += epicenter.direction_to(position)*fishSpeed
-		if(position.distance_to(epicenter) > 10):
+		if(get_parent().global_position.distance_to(epicenter) > 200):
 			scared = false
+		get_parent().global_position += epicenter.direction_to(get_parent().global_position)*fishSpeed
+		#print(get_parent().global_position.distance_to(epicenter))
+
+#is_active_fish_area = true
+#Global.can_player_fish = true
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		is_active_fish_area = true
-		Global.can_player_fish = true
-
-
-func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		is_active_fish_area = false
-		Global.can_player_fish = false
 
 var scared = false
 var epicenter: Vector2 = Vector2(0, 0)
 
-func scare(epicenter: Vector2):
-	scared = true	
+func scare(newEpicenter: Vector2):
+	epicenter = newEpicenter
+	scared = true

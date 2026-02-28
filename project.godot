@@ -22,6 +22,7 @@ Global="*res://src/worlds/main/global.gd"
 [global_group]
 
 player=""
+fish_spot=""
 
 [input]
 

@@ -3,6 +3,7 @@ extends Node2D
 @onready var indicator: Sprite2D = $indicator # the '!' thinging
 
 var fish_meter = preload("res://scenes/worlds/main/fish_meter.tscn") # the fish meter mini game scene
+@onready var scare_area: Area2D = $scareArea
 
 func _ready() -> void:
 	print("(main/boat.gd) Hello, Ive spawned!") #if u leave debug messages, say what script theyre in!
@@ -76,3 +77,23 @@ func fishTime():
 	if Input.is_action_just_pressed("ui_accept"):
 		var inst = fish_meter.instantiate()
 		add_child(inst)
+		
+		for obj in scare_area.get_overlapping_areas():
+			if obj.is_in_group("fish_spot") and obj != targetFishArea:
+				obj.scare(global_position)
+		
+		
+
+
+var targetFishArea: Area2D = null
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("fish_spot"):
+		area.is_active_fish_area = true
+		Global.can_player_fish = true
+		targetFishArea = area
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("fish_spot"):
+		area.is_active_fish_area = false
+		Global.can_player_fish = false
