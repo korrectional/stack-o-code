@@ -5,6 +5,7 @@ extends Area2D
 var is_active_fish_area = false # is the player inside the zone
 var selfdestructTimer = 30 # how long does it take for it to die in seconds
 var fishSpeed = 3
+
 func _ready() -> void:
 	animation_player.play("fish_idle")
 	

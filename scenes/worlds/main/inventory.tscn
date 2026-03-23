@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=3 uid="uid://buhjrug6hvttu"]
+
+[ext_resource type="Script" uid="uid://bj0bkub8fkcy6" path="res://src/worlds/main/item_slot.gd" id="1_4q5ny"]
+[ext_resource type="Resource" uid="uid://belod2he3ov7v" path="res://resouces/item_slot0.tres" id="2_5v1mc"]
+[ext_resource type="Resource" uid="uid://byo51olbd01jv" path="res://resouces/item_slot1.tres" id="3_33sqh"]
+[ext_resource type="Resource" uid="uid://c182olx7tufc4" path="res://resouces/item_slot2.tres" id="4_l648t"]
+[ext_resource type="Resource" uid="uid://xtc48bakybbh" path="res://resouces/delete_slot.tres" id="5_unwax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uake"]
+size = Vector2(50, 50)
+
+[node name="inventory" type="Control"]
+process_mode = 3
+process_priority = 1
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 473.17828
+offset_bottom = 327.0
+mouse_filter = 2
+
+[node name="item_slot 0" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 66.0
+offset_bottom = 66.0
+pivot_offset = Vector2(26, 26)
+mouse_filter = 2
+script = ExtResource("1_4q5ny")
+item_slot_res = ExtResource("2_5v1mc")
+
+[node name="Area2D" type="Area2D" parent="Panel/item_slot 0"]
+collision_mask = 2
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/item_slot 0/Area2D"]
+position = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_4uake")
+
+[node name="item_slot 1" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 0
+offset_left = 79.0
+offset_top = 15.0
+offset_right = 130.0
+offset_bottom = 66.0
+pivot_offset = Vector2(26, 26)
+mouse_filter = 2
+script = ExtResource("1_4q5ny")
+item_slot_res = ExtResource("3_33sqh")
+
+[node name="Area2D" type="Area2D" parent="Panel/item_slot 1"]
+collision_mask = 2
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/item_slot 1/Area2D"]
+position = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_4uake")
+
+[node name="item_slot 2" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 0
+offset_left = 143.0
+offset_top = 15.0
+offset_right = 194.0
+offset_bottom = 66.0
+pivot_offset = Vector2(26, 26)
+mouse_filter = 2
+script = ExtResource("1_4q5ny")
+item_slot_res = ExtResource("4_l648t")
+
+[node name="Area2D" type="Area2D" parent="Panel/item_slot 2"]
+collision_mask = 2
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/item_slot 2/Area2D"]
+position = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_4uake")
+
+[node name="delete_slot" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 0
+offset_left = 399.0
+offset_top = 256.0
+offset_right = 450.0
+offset_bottom = 307.0
+pivot_offset = Vector2(26, 26)
+mouse_filter = 2
+script = ExtResource("1_4q5ny")
+item_slot_res = ExtResource("5_unwax")
+
+[node name="Area2D" type="Area2D" parent="Panel/delete_slot"]
+collision_mask = 2
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/delete_slot/Area2D"]
+position = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_4uake")
+
+[connection signal="area_entered" from="Panel/item_slot 0/Area2D" to="Panel/item_slot 0" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/item_slot 0/Area2D" to="Panel/item_slot 0" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Panel/item_slot 0/Area2D" to="Panel/item_slot 0" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/item_slot 0/Area2D" to="Panel/item_slot 0" method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="Panel/item_slot 1/Area2D" to="Panel/item_slot 1" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/item_slot 1/Area2D" to="Panel/item_slot 1" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Panel/item_slot 1/Area2D" to="Panel/item_slot 1" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/item_slot 1/Area2D" to="Panel/item_slot 1" method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="Panel/item_slot 2/Area2D" to="Panel/item_slot 2" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/item_slot 2/Area2D" to="Panel/item_slot 2" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Panel/item_slot 2/Area2D" to="Panel/item_slot 2" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/item_slot 2/Area2D" to="Panel/item_slot 2" method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="Panel/delete_slot/Area2D" to="Panel/delete_slot" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/delete_slot/Area2D" to="Panel/delete_slot" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Panel/delete_slot/Area2D" to="Panel/delete_slot" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/delete_slot/Area2D" to="Panel/delete_slot" method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="fish_item" load_steps=2 format=3 uid="uid://citjw2t80c2o7"]
+
+[ext_resource type="Script" uid="uid://cqa226t0mhwy3" path="res://resouces/item_resource.gd" id="1_d5hok"]
+
+[resource]
+script = ExtResource("1_d5hok")
+weight = 2.6
+metadata/_custom_type_script = "uid://cqa226t0mhwy3"

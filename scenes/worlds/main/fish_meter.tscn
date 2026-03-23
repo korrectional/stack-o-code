@@ -31,6 +31,7 @@ scale = Vector2(0.19422214, 1)
 texture = SubResource("CanvasTexture_cb8pr")
 
 [node name="hit_zone1" type="Area2D" parent="box/hit1"]
+collision_layer = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit1/hit_zone1"]
@@ -46,6 +47,7 @@ scale = Vector2(0.19422214, 1)
 texture = SubResource("CanvasTexture_cb8pr")
 
 [node name="hit_zone2" type="Area2D" parent="box/hit2"]
+collision_layer = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit2/hit_zone2"]
@@ -61,6 +63,7 @@ scale = Vector2(0.19422214, 1)
 texture = SubResource("CanvasTexture_cb8pr")
 
 [node name="hit_zone3" type="Area2D" parent="box/hit3"]
+collision_layer = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit3/hit_zone3"]
@@ -75,6 +78,7 @@ scale = Vector2(0.019555464, 1)
 texture = SubResource("CanvasTexture_cb8pr")
 
 [node name="hit_detector_zone" type="Area2D" parent="box/hit_detector"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/hit_detector/hit_detector_zone"]
 position = Vector2(9.536743e-07, 1.013279e-07)
@@ -82,14 +86,13 @@ scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_gkym8")
 
 [node name="borderStart" type="Area2D" parent="box"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/borderStart"]
 position = Vector2(-0.6111111, 0)
 shape = SubResource("RectangleShape2D_04yw0")
 
 [node name="borderEnd" type="Area2D" parent="box"]
-visible = false
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/borderEnd"]
 position = Vector2(0.5888889, 0)

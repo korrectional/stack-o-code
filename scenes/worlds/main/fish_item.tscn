@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://crmt5hmahs60y"]
+
+[ext_resource type="Script" uid="uid://b5mjw8vh4aejw" path="res://src/worlds/main/fish_item.gd" id="1_710qw"]
+[ext_resource type="Texture2D" uid="uid://bpe3a5d5x4f0b" path="res://res/fish.png" id="1_eqj43"]
+[ext_resource type="Resource" uid="uid://citjw2t80c2o7" path="res://resouces/fish_item1.tres" id="2_pc7to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_710qw"]
+size = Vector2(52, 48)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pc7to"]
+bg_color = Color(0.19793722, 0.19793725, 0.19793713, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pc7to"]
+font_size = 22
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osv1a"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[node name="fish_item" type="Node2D"]
+process_mode = 3
+process_priority = 2
+script = ExtResource("1_710qw")
+fish_stats = ExtResource("2_pc7to")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_eqj43")
+
+[node name="Area2D" type="Area2D" parent="." groups=["item"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_710qw")
+
+[node name="type_of_fish" type="Label" parent="."]
+visible = false
+z_index = 3
+texture_filter = 1
+offset_right = 12.0
+offset_bottom = 31.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pc7to")
+text = "S"
+label_settings = SubResource("LabelSettings_pc7to")
+
+[node name="Panel" type="Panel" parent="type_of_fish"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -3.0
+offset_right = 82.0
+offset_bottom = 31.0
+mouse_filter = 2
+
+[node name="weight" type="Label" parent="."]
+visible = false
+z_index = 3
+texture_filter = 1
+offset_top = 31.0
+offset_right = 21.0
+offset_bottom = 62.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_osv1a")
+text = "W"
+label_settings = SubResource("LabelSettings_pc7to")
+
+[node name="Panel" type="Panel" parent="weight"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -3.0
+offset_right = 141.0
+offset_bottom = 31.0
+mouse_filter = 2
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

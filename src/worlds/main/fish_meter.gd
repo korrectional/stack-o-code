@@ -22,14 +22,18 @@ var has_fished = false # input recebed
 var selfdestructTimer = 1.7
 var can_selfdestruct = false
 
+signal create_fish
+
 func _ready() -> void:
 	miss.visible = false
 	caught.visible = false
 	rand_hit = randi_range(1, 3)
-	rand_speed = randi_range(1, 2)
+	rand_speed = randf_range(0.4, 1.3)
 	fish_choose()
 	
 func _process(delta: float) -> void:
+	global_rotation = 0
+	
 	if can_selfdestruct:
 		selfdestructTimer -= delta
 		if selfdestructTimer <= 0:
@@ -57,10 +61,13 @@ func fish_time(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):
 		if can_fish:
 			caught.visible = true
+			#create_fish.emit()
+			Global.can_create_fish = true
 		elif !can_fish:
 			miss.visible = true
 		has_fished = true
 		can_selfdestruct = true
+		hit_area.monitorable = false
 	
 
 
