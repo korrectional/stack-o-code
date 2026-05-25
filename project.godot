@@ -11,19 +11,21 @@ config_version=5
 [application]
 
 config/name="stack-o-code"
-run/main_scene="uid://fviunj8grkg1"
+run/main_scene="uid://bo4de3kau3ech"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://res/icon.svg"
+config/icon="res://ass/icon.svg"
 
 [autoload]
 
-Global="*res://src/worlds/main/global.gd"
+Global="*res://src/worlds/main/Global.gd"
+SalesManager="*res://src/worlds/main/SalesManager.gd"
 
 [global_group]
 
 player=""
 fish_spot=""
 item=""
+legal_dock=""
 
 [input]
 

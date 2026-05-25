@@ -8,13 +8,12 @@ var is_selected = false # is mouse hovering over it
 
 @export var fish_stats : Resource
 
-var fish_name = "e" # Idk, can probably just delete
 
 var is_mouse_left = false # true --> picked up item; false --> placed it down
 
 func _ready() -> void:
 	#fish_stats.default_pos = position
-	type_of_fish_lab.text = fish_stats.name_of_type_of_fish()
+	type_of_fish_lab.text = fish_stats.get_fish_type()
 	weight_lab.text = "Weight: " + str("%0.2f" %fish_stats.weight) + "lb"
 	
 func area_scan(): # I don't think I used this
@@ -38,14 +37,14 @@ func _process(delta: float) -> void:
 		if !is_area_touching_fish and a:
 			global_position = fish_stats.default_pos
 			a = false
-		if Global.mouse_is_holding_this_item == self:
-			Global.mouse_is_holding_this_item = null
-			#print("--" + str(Global.mouse_is_holding_this_item))
+		if Global.itemHeldByMouse == self:
+			Global.itemHeldByMouse = null
+			#print("--" + str(Global.itemHeldByMouse))
 		
 	if is_mouse_left:
 		a = true
 		area_2d.collision_layer = 2
-		Global.mouse_is_holding_this_item = self
+		Global.itemHeldByMouse = self
 		#print("--" + str(Global.mouse_is_holding_this_item))
 		global_position = get_global_mouse_position()
 		z_index = 1

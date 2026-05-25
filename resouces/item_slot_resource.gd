@@ -11,7 +11,7 @@ enum box_variants {
 	delete
 }
 
-func box_variants_name():
+func box_variant_name():
 	var name : String
 	match type:
 		0:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://123ldq8bfgk8"
-path="res://.godot/imported/fish_spot.png-d78c0f80ad49d6a19f043b5bc3de407d.ctex"
+uid="uid://b3n6iyth5b5ua"
+path="res://.godot/imported/sailboat_green_0001-sheet.png-d374debe5ecee59454806937ee11ef24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/fish_spot.png"
-dest_files=["res://.godot/imported/fish_spot.png-d78c0f80ad49d6a19f043b5bc3de407d.ctex"]
+source_file="res://ass/TopDown Boat Assets/sailboat/sailboat_green_0001-sheet.png"
+dest_files=["res://.godot/imported/sailboat_green_0001-sheet.png-d374debe5ecee59454806937ee11ef24.ctex"]
 
 [params]
 

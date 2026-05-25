@@ -1,6 +1,8 @@
 extends Node2D
 
-@onready var indicator: Sprite2D = $indicator # the '!' thinging
+@onready var indicator_fish: Sprite2D = $indicatorFish
+@onready var indicator_dock: Sprite2D = $indicatorDock
+
 @onready var inventory: Control = $inventory
 
 var fish_meter = preload("res://scenes/worlds/main/fish_meter.tscn") # the fish meter mini game scene
@@ -14,6 +16,7 @@ func _ready() -> void:
 	print("(main/boat.gd) Hello, Ive spawned!") #if u leave debug messages, say what script theyre in!
 	create_fish_item()
 	item_isnt.queue_free()
+	Global.boatPointer = self
 	pass
 
 var rmomentum: float = 0 # momentum of rotation
@@ -28,8 +31,9 @@ var can_move = true
 
 var aa
 
-func _process(delta: float) -> void:
-	inventory.position = position + Vector2(-200, -200)
+func _process(delta: float) -> void:	
+	inventory.position = position + Vector2(-200, -200) # bruh do you know how fucking
+	#                              dumb this is? we can lock the fucking inventory onto the view
 	#aa = get_node("fish_meter")
 	#if aa != null:
 	#	print(aa)
@@ -44,7 +48,7 @@ func _process(delta: float) -> void:
 		can_turn_inventory_on = false
 		create_fish_item()
 		
-	if Global.mouse_is_holding_this_item == null and item_isnt != null:
+	if Global.itemHeldByMouse == null and item_isnt != null:
 		#wprint(item_isnt.global_position, fish_item_default_pos)
 		if item_isnt.global_position != fish_item_default_pos: # if it's not were it spaws after item release
 			can_turn_inventory_on = true
@@ -54,20 +58,15 @@ func _process(delta: float) -> void:
 	
 	# ui_focus_next --> TAB
 	if Input.is_action_just_pressed("ui_focus_next") and !is_inventory_on and can_turn_inventory_on:
-		can_move = false
-		inventory.visible = true
-		inventory.top_level = true
-		is_inventory_on = true
+		inventoryEnabled(true)
 	elif Input.is_action_just_pressed("ui_focus_next") and is_inventory_on and can_turn_inventory_on:
-		can_move = true
-		inventory.visible = false
-		is_inventory_on = false
+		inventoryEnabled(false)
 		
 	if Global.can_player_fish:
 		fishTime()
 	else:
-		if indicator.visible:
-			indicator.visible = false
+		if indicator_fish.visible:
+			indicator_fish.visible = false
 	
 	var ileft = Input.is_action_pressed("left")
 	var iright = Input.is_action_pressed("right")
@@ -116,11 +115,14 @@ func _process(delta: float) -> void:
 		if mmomentum.y < 0.001 and mmomentum.y > -0.001:
 			mmomentum.y = 0
 	
-	pass
+	# make the indicators face the right direction
+	if indicator_fish.visible or indicator_dock.visible:
+		indicator_fish.global_rotation = 0
+		indicator_dock.global_rotation = 0
 
 # yey here we catch the fish
 func fishTime():
-	indicator.visible = true
+	indicator_fish.visible = true
 	#indicator.global_position = position + Vector2.UP*70
 	#indicator.global_rotation = 0
 	
@@ -166,13 +168,31 @@ func create_fish_item():
 var fish_item_default_pos = Vector2.ZERO
 var targetFishArea: Area2D = null
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	
 	if area.is_in_group("fish_spot"):
 		area.is_active_fish_area = true
 		Global.can_player_fish = true
 		targetFishArea = area
+	elif area.is_in_group("legal_dock"):
+		Global.insideLegalDock = true
+		indicator_dock.visible = true
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("fish_spot"):
 		area.is_active_fish_area = false
 		Global.can_player_fish = false
+	elif area.is_in_group("legal_dock"):
+		Global.insideLegalDock = false
+		indicator_dock.visible = false
+
+func inventoryEnabled(active: bool):
+	if active:
+		can_move = false
+		inventory.visible = true
+		inventory.top_level = true
+		is_inventory_on = true
+	else:
+		can_move = true
+		inventory.visible = false
+		is_inventory_on = false

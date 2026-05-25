@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://6grqypwqhmj6"]
 
-[ext_resource type="Texture2D" uid="uid://bpe3a5d5x4f0b" path="res://res/fish.png" id="1_kbkhl"]
+[ext_resource type="Texture2D" uid="uid://bpe3a5d5x4f0b" path="res://ass/fish.png" id="1_kbkhl"]
 [ext_resource type="Script" uid="uid://tebra6yegtbh" path="res://src/worlds/main/fish_spot.gd" id="2_no4gw"]
 
 [sub_resource type="Animation" id="Animation_no4gw"]
@@ -123,6 +123,7 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="." groups=["fish_spot"]]
+visible = false
 script = ExtResource("2_no4gw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

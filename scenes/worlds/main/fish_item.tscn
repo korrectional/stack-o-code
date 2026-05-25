@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://crmt5hmahs60y"]
 
-[ext_resource type="Script" uid="uid://b5mjw8vh4aejw" path="res://src/worlds/main/fish_item.gd" id="1_710qw"]
-[ext_resource type="Texture2D" uid="uid://bpe3a5d5x4f0b" path="res://res/fish.png" id="1_eqj43"]
+[ext_resource type="Script" path="res://src/worlds/main/fish_item.gd" id="1_710qw"]
+[ext_resource type="Texture2D" uid="uid://bpe3a5d5x4f0b" path="res://ass/fish.png" id="1_eqj43"]
 [ext_resource type="Resource" uid="uid://citjw2t80c2o7" path="res://resouces/fish_item1.tres" id="2_pc7to"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_710qw"]

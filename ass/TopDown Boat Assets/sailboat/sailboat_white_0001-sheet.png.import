@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpk74kbcxi2g7"
-path="res://.godot/imported/indicator.png-70f5777e8795f6670d41b2ca7275dbdb.ctex"
+uid="uid://ctywql7v0254s"
+path="res://.godot/imported/sailboat_white_0001-sheet.png-52a02c3614bcf8b3eb5e0586fb608695.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/indicator.png"
-dest_files=["res://.godot/imported/indicator.png-70f5777e8795f6670d41b2ca7275dbdb.ctex"]
+source_file="res://ass/TopDown Boat Assets/sailboat/sailboat_white_0001-sheet.png"
+dest_files=["res://.godot/imported/sailboat_white_0001-sheet.png-52a02c3614bcf8b3eb5e0586fb608695.ctex"]
 
 [params]
 

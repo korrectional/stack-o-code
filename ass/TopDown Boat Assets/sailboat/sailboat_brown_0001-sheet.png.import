@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8jbf7oojry4s"
-path="res://.godot/imported/sailboat_yellow_0001-sheet.png-fa7bee1f112a1c6dcdc25759c54c30ef.ctex"
+uid="uid://dp7lkbiov8xu5"
+path="res://.godot/imported/sailboat_brown_0001-sheet.png-f6d7d06c118873c6bb27aace89fd52c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/TopDown Boat Assets/sailboat/sailboat_yellow_0001-sheet.png"
-dest_files=["res://.godot/imported/sailboat_yellow_0001-sheet.png-fa7bee1f112a1c6dcdc25759c54c30ef.ctex"]
+source_file="res://ass/TopDown Boat Assets/sailboat/sailboat_brown_0001-sheet.png"
+dest_files=["res://.godot/imported/sailboat_brown_0001-sheet.png-f6d7d06c118873c6bb27aace89fd52c5.ctex"]
 
 [params]
 

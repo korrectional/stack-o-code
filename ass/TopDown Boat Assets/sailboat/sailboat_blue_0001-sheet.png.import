@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1gxjdgqn4hdl"
-path="res://.godot/imported/sailboat_blue_0001-sheet.png-963e1bd6eae2d802dbddc79e9452f9c5.ctex"
+path="res://.godot/imported/sailboat_blue_0001-sheet.png-3150e223ed620fe0df00a7c531920084.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/TopDown Boat Assets/sailboat/sailboat_blue_0001-sheet.png"
-dest_files=["res://.godot/imported/sailboat_blue_0001-sheet.png-963e1bd6eae2d802dbddc79e9452f9c5.ctex"]
+source_file="res://ass/TopDown Boat Assets/sailboat/sailboat_blue_0001-sheet.png"
+dest_files=["res://.godot/imported/sailboat_blue_0001-sheet.png-3150e223ed620fe0df00a7c531920084.ctex"]
 
 [params]
 
